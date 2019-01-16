@@ -16,6 +16,6 @@ def main():
             if os.name == 'posix':
                 os.system('useradd -c "{} {}" {}'.format(first_name, last_name, (first_name + last_name + student_id)))
             elif os.name == 'nt':
-                os.system('New-LocalUser -Description "{} {}" -Name {}'.format(first_name, last_name, (first_name + last_name + student_id)))
+                os.system('New-LocalUser -Description "{} {}" -Name {} -NoPassword'.format(first_name, last_name, (first_name + last_name + student_id)))
             
 main()
