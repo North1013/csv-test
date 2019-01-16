@@ -13,6 +13,9 @@ def main():
             gender = row['gender']
             date_of_birth = row['date_of_birth']
 
-            print('useradd -c "{} {}" {}'.format(first_name, last_name, (first_name + last_name + student_id)))
-
+            if os.name == 'posix':
+                os.system('useradd -c "{} {}" {}'.format(first_name, last_name, (first_name + last_name + student_id)))
+            elif os.name == 'nt':
+                os.system('New-LocalUser -Description "{} {}" -Name {}'.format(first_name, last_name, (first_name + last_name + student_id)))
+            
 main()
